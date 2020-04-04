@@ -1,6 +1,7 @@
 # About this App (EmployeeDetails)
 Application to show a list of employees with an ability to add a new user and delete/update existing user(s) details. 
 We have implemented CRUD operation for Add, delete and update employee details.
+This application is support for Android and iOS devices
 
 # Getting Started:
  - Install the ionic CLI globally: npm install -g ionic
