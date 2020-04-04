@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>update Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Edit Name : </ion-label>
+    <ion-input type="text" placeholder="update name" maxlength="255" [(ngModel)]="editedEmpList.employee_name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Edit Salary : </ion-label>
+    <ion-input type="number" placeholder="update salary" maxlength="10" [(ngModel)]="editedEmpList.employee_salary"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Edit Age : </ion-label>
+    <ion-input type="number" placeholder="update age" maxlength="10" [(ngModel)]="editedEmpList.employee_age"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Edit Profile Image : </ion-label>
+    <ion-icon name="cloud-upload-outline" (click)="presentActionSheet()"></ion-icon>
+    <ion-thumbnail slot="end">
+      <ion-img [src]="updatedProfileImg? updatedProfileImg : 'assets/userAvatar/avatar.svg'"></ion-img>
+    </ion-thumbnail>
+  </ion-item>
+  <ion-row>
+    <ion-col col-4> 
+      <ion-button fill="outline" expand="block" (click)="updateEmployeeDetails(editedEmpList, updatedProfileImg)" [disabled]="editedEmpList.employee_name && editedEmpList.employee_salary && editedEmpList.employee_age =='' ">Update Employee</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

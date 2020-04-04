@@ -1,5 +1,7 @@
 {
   "name": "employee_list",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

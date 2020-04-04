@@ -1,20 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Employee List
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- List of Text Items -->
+  <ion-virtual-scroll [items]="employeeArray" approxItemHeight="30px">
+    <ion-item-sliding *virtualItem="let item" #slidingItem>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="item.profile_image? item.profile_image : 'assets/userAvatar/avatar.svg'"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ item.employee_name }}</h2>
+        <h3>Salary: {{ item.employee_salary }}</h3>
+        <p>Age: {{ item.employee_age }}</p>
+      </ion-label>
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteEmployee(item.id, slidingItem)" color="danger">
+          <ion-button class="slideButton" color="danger">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-item-option>
+        <ion-item-option (click)="updateEmployee(item, slidingItem)">
+          <ion-button class="slideButton" >
+          <ion-icon slot="icon-only" name="create-outline" ></ion-icon>
+        </ion-button>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item>
+  </ion-item-sliding>
+</ion-virtual-scroll>
+<!-- fab placed to the bottom end -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add" routerLink="/add-employee"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>

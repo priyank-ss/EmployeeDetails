@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Name : </ion-label>
+    <ion-input type="text" placeholder="employee name" maxlength="255" [(ngModel)]="empList.employee_name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Salary : </ion-label>
+    <ion-input type="number" placeholder="salary" maxlength="10" [(ngModel)]="empList.employee_salary"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Age : </ion-label>
+    <ion-input type="number" placeholder="age" maxlength="10" [(ngModel)]="empList.employee_age"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Profile Image : </ion-label>
+    <ion-icon name="cloud-upload-outline" (click)="presentActionSheet()"></ion-icon>
+    <ion-thumbnail slot="end">
+      <ion-img [src]="profileImg? profileImg : 'assets/userAvatar/avatar.svg'"></ion-img>
+    </ion-thumbnail>
+  </ion-item>
+  <ion-row>
+    <ion-col col-4> 
+      <ion-button fill="outline" expand="block" (click)="addEmployee(empList)" [disabled]="empList.employee_name && empList.employee_salary && empList.employee_age =='' ">Add Employee</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
