@@ -16,6 +16,7 @@ export class HomePage implements OnInit {
               public utilityService: UtilityService) { }
 
   ngOnInit() {
+    this.utilityService.showLoading(constants.LOADING_EMPLOYEE_MESSAGE);
     localStorage.getItem('employeeDetails') === null ? this.getEmployees() : localStorage.getItem('employeeDetails');
   }
 
