@@ -24,7 +24,7 @@ Profile image : User can capture the image from mobile by Photo Library or camar
 ion-item-sliding : A sliding item contains an item that can be dragged to reveal buttons. using this feature user can edit or delete the employee
 
 # Application 
-  - Ionic CLI                     : 5.3.0 (/usr/local/lib/node_modules/ionic)
+  - Ionic CLI                     : 5.3.0 
   - Ionic Framework               : @ionic/angular 5.0.7
   - @angular-devkit/build-angular : 0.803.26
   - @angular-devkit/schematics    : 8.3.26
